@@ -1,5 +1,5 @@
 const express=require("express");
-const { UrlModel } = require("../model/URLModel");
+const { UrlModel } = require("../model/UrlModel");
 const shortid=require("shortid")
 const urlRoute=express.Router()
 
