@@ -3,7 +3,8 @@ const { connection } = require("./connect")
 const cors=require("cors")
 const urlRoute=require("./routes/Urlroutes")
 const { UrlModel } = require("./model/URLModel")
-
+const dotenv=require("dotenv").config()
+const port=process.env.PORT
 const app=express()
 app.use(express.json())
 app.use(cors())
@@ -30,7 +31,7 @@ app.get("/:shortUrl", async (req, res) => {
 
 
   const HOSTNAME = "testHost";
-app.listen(4500,async()=>{
+app.listen(port,async()=>{
     try{
        await connection
        console.group(`mongodb is connected`)
@@ -38,5 +39,5 @@ app.listen(4500,async()=>{
     catch(err){
          console.log(`error is ${err}`)
     }
-    console.log(`server is running on 4500`)
+    console.log(`server is running on ${port}`)
 })
